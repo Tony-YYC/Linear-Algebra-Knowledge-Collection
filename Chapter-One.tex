@@ -114,8 +114,49 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
 \end{cases}
 \]
-称为一个m个方程n个未知量的线性方程组，简记为\(m \times n\)的线性方程组或线性系统。其中\(a_{ij} \in F, i=1,2,\dots ,m; j=1,2,\dots,  x_1 , x_2 , \dots , x_n\)为未知变量
+称为一个m个方程n个未知量的线性方程组，简记为\(m \times n\)的线性方程组或线性系统。其中\(a_{ij} \in F, i=1,2,\dots ,m; j=1,2,\dots,  x_1 , x_2 , \dots , x_n\)为未知变量，\(a_{ij}\)表示第i个方程中的第j个未知量\(x_j\)前面的系数，\(b_i\)为第i个方程的常数项。
 
-\section{解的判别和求法}
+\subsection{解集的定义}
+若存在一组数 \(c_1,c_2,\dots ,c_n \in F\) 满足方程组的每个方程，\\则称\(x_1=c_1,x_2=c_2,\dots ,x_n=c_n\) 为方程组的一组解或者一个解，记为\((c_1,c_2,\dots ,c_n)\).方程组的全体解所构成的集合称为该方程组的解集。
+
+\subsection{同解方程组}
+如果两个方程组的解集相同，则称这两个方程组为同解方程组或者两个方程组同解。
+
+\section{解的判别与求法}
 \subsection{线性方程组的消元法} 直接对方程组进行消元等操作，此处不再赘述
+\subsection{高斯消元法} 线性方程组对应的增广矩阵\(\mathbf {\tilde A}\)通过初等行变换化为一个（简化）阶梯形矩阵，通过（简化）阶梯形矩阵求解线性方程组的方式，称为线性方程组的高斯消元法。
+\subsubsection{定理：解的不变性} 线性方程组的高斯消元法得到的新方程组与原方程组同解
+\subsubsection{定理：线性方程组解的判别} \(m \times n\)的线性方程组，其增广矩阵化为阶梯形矩阵有r个非零行，期中对应于方程组的系数矩阵部分有s个非零行.则线性方程组有解的充分必要条件为\(s=r\)且
+\begin{enumerate}
+    \item \(s=r=n\)，原方程组有唯一解
+    \item \(s=r<n\)，原方程组有无穷多解
+    \item \(s<r\)，原方程组无解
+\end{enumerate}
+\subsubsection{推论：齐次线性方程组解的判别} \(m \times n\)的齐次线性方程组，其系数矩阵的阶梯形的非零行数为s，则
+\begin{enumerate}
+    \item 齐次线性方程组唯一零解的充分必要条件为\(s=n\)
+    \item 其次线性方程组有无穷多解，即有非零解的充分必要条件为\(s<n\)
+    \item 如果\(m<n\)，则齐次线性方程组必有非零解
+\end{enumerate}
+\subsubsection{解题方法：非齐次方程组的求解}
+\begin{enumerate}
+    \item 将增广矩阵初等行变换到阶梯形
+    \item 判断解的情况
+    \item {\begin{itemize}
+        \item 有解时，进一步做初等行变换到简化阶梯形
+        \item 若有唯一解，则直接写出
+        \item 若有无穷多解，写出简化阶梯形对应的方程组，从而确定自由未知量，写出所有解（称为一般解）。
+        \end{itemize}}
+\end{enumerate}
+
+\subsubsection{解题方法：齐次方程组的求解}
+\begin{enumerate}
+    \item 将系数矩阵初等行变换到阶梯形
+    \item 判断解的情况
+    \item {\begin{itemize}
+        \item 若有只有零解，则直接写出
+        \item 若有非零解，写出简化阶梯形对应的方程组，从而确定自由未知量，写出所有解（称为一般解）。
+        \end{itemize}}
+\end{enumerate}
+
 \end{document}

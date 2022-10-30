@@ -18,5 +18,13 @@
 \contentsline {section}{\numberline {6}数域}{5}{}%
 \contentsline {section}{\numberline {7}线性方程组的基本概念}{5}{}%
 \contentsline {subsection}{\numberline {7.1}线性方程组定义}{5}{}%
-\contentsline {section}{\numberline {8}解的判别和求法}{5}{}%
-\contentsline {subsection}{\numberline {8.1}线性方程组的消元法}{5}{}%
+\contentsline {subsection}{\numberline {7.2}解集的定义}{5}{}%
+\contentsline {subsection}{\numberline {7.3}同解方程组}{6}{}%
+\contentsline {section}{\numberline {8}解的判别与求法}{6}{}%
+\contentsline {subsection}{\numberline {8.1}线性方程组的消元法}{6}{}%
+\contentsline {subsection}{\numberline {8.2}高斯消元法}{6}{}%
+\contentsline {subsubsection}{\numberline {8.2.1}定理：解的不变性}{6}{}%
+\contentsline {subsubsection}{\numberline {8.2.2}定理：线性方程组解的判别}{6}{}%
+\contentsline {subsubsection}{\numberline {8.2.3}推论：齐次线性方程组解的判别}{6}{}%
+\contentsline {subsubsection}{\numberline {8.2.4}解题方法：非齐次方程组的求解}{7}{}%
+\contentsline {subsubsection}{\numberline {8.2.5}解题方法：齐次方程组的求解}{7}{}%
