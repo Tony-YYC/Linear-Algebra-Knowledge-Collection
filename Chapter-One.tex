@@ -1,0 +1,121 @@
+\documentclass[UTF-8,a4paper]{ctexart}
+\usepackage{amsmath,amsfonts}
+\usepackage{CJKutf8}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+%title
+\begin{document}
+\title{Linear Algebra Knowledge Points Collection}
+\author{\kaishu 俞奕成}
+\date{\kaishu \today}
+\maketitle
+
+\thanks{Introduction: This article aims to arrage the knowledge points of the Linear Algebra Course for learners in order to improve their understanding and boost the efficiency.}
+%contents
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\newpage
+
+\part{矩阵}
+\section{矩阵基本概念}
+\(A=(a_{ij})_{m\times n}\)
+A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
+
+\subsection{同型矩阵}
+\kaishu
+矩阵\(A=(a_{ij})_{m\times n}\) \(B=(b_{ij})_{s\times t}\)，\\如果\(m=s,n=t\)，则矩阵A和B为同型矩阵。
+\\直观：形状相同
+
+\subsection{相等矩阵}
+\kaishu
+矩阵\(A=(a_{ij})_{m\times n}\) \(B=(b_{ij})_{s\times t}\),\\
+若同型，且\(a_{ij}=b_{ij}\), \(i=1,2,\dots ,m\),\(j=1,2,\dots ,n\)
+\\则A，B为相等矩阵.
+\\直观：形状相同，且每个位置的元素对应相等
+
+\subsection{主对角线与主对角元}
+\begin{description}
+    \item[主对角线] \kaishu 在n阶方阵\(\mathbf{A}\)中，从(1,1)位置到(n,n)位置的直线称为方程的主对角线
+    \item[主对角元] \kaishu 主对角线上的元素
+\end{description}
+
+\subsection{常用矩阵}
+\begin{description}
+    \item[零矩阵]{\kaishu 元素全为0的矩阵称为零矩阵，记为\(\mathbf 0_{m\times n}\)或\(\mathbf 0\)}
+    \item[行（列）矩阵] {\kaishu 仅有一行（列）的矩阵}
+    \item[行（列）向量]{\kaishu 定义同行（列）矩阵} 
+    \item[方阵] \kaishu 行数和列数相同的矩阵
+    \item[对角矩阵] \kaishu 除了主对角线上的元素外，其他元素都是0的矩阵，简称为对角阵，记为\(\mathbf A = \mathbf{diag}(a_{11},a_{22},\dots ,a_{nn})\)
+    \item[单位矩阵] \kaishu 主对角元全为1的对角矩阵。记为\(\mathbf{E}\)或者\(\mathbf{I}\)
+    \item[数量矩阵] \kaishu 主对角元全部相等的对角矩阵。记为\( k \mathbf E \)或者\(k\mathbf E_n\)
+    \item[上（下）三角矩阵] \kaishu 主对角线下方（上方）的元素全为0的方阵
+    \item[对称矩阵] In matrix \(\mathbf{A}=(a_{ij})_n\), \(a_{ij}=a_{ji}\), \(i,j=1,2,\dots ,n\) \newline \kaishu 直观：关于主对角线对称
+    \item[反对称矩阵] In matrix \(\mathbf{A}=(a_{ij})_n\), \(a_{ij}=-a_{ji}\), \(i,j=1,2,\dots ,n\) \newline \kaishu 直观：主对角线上下两块对应位置上的元素互为相反数
+\end{description}
+
+\section{矩阵的运算}
+\section{可逆矩阵}
+\section{分块矩阵}
+
+
+\section{矩阵的初等行变换}
+
+\subsection{定义}
+\subsubsection{初等行变换}
+\kaishu 矩阵的下面三种行为，称之为矩阵的初等行变换（行变换）：
+\begin{enumerate}
+    \item 交换矩阵的i,j两行，记为\(r_i \leftrightarrow r_j \)
+    \item 矩阵的第i行非零常数k倍，记为\(kr_i\)
+    \item 矩阵的第i行的常数k倍加到第j行，记为\(r_j+kr_i\)(顺序不可反)
+\end{enumerate}
+
+\subsubsection{行阶梯形矩阵}
+满足下面两个条件的矩阵称为行阶梯形矩阵，简称阶梯形矩阵：
+\begin{enumerate}
+    \item 零行（元素全为零的行）排在所有非零行的下方
+    \item 每个非零行的第一个（从左至右）非零元（称为主元）的列标号，从上到下，严格递增
+\end{enumerate}
+
+\subsubsection{简化阶梯形（行最简形）矩阵}
+一个阶梯形矩阵若满足下面两条性质，称之为（行）简化阶梯形（或行最简形）矩阵基本概念
+\begin{enumerate}
+    \item 主元均为1
+    \item 主元所在列的其他元素全为零
+\end{enumerate}
+
+\subsection{定理}
+\subsubsection{} 任何一个矩阵都可以经过初等行变换化为阶梯形矩阵或者简化阶梯形矩阵
+
+
+
+
+\part{线性方程组}
+\section{数域}
+\begin{enumerate}
+    \item 设\(\mathbf{F}\)为一个数集，如果\(\mathbf{F}\)中任意两个数做某种运算的结果仍属于\(\mathbf{F}\)，称数集F对这种运算封闭
+    \item 设\(\mathbf{F}\)是包含0和1的数集，若\(\mathbf{F}\)对四则运算封闭，则称\(\mathbf{F}\)为一个数域，记为F
+\end{enumerate}
+\section{线性方程组的基本概念}
+\subsection{线性方程组定义}
+形如
+\[\begin{cases}
+    a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1\\
+    a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2\\
+    \vdots \\
+    a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
+\end{cases}
+\]
+称为一个m个方程n个未知量的线性方程组，简记为\(m \times n\)的线性方程组或线性系统。其中\(a_{ij} \in F, i=1,2,\dots ,m; j=1,2,\dots,  x_1 , x_2 , \dots , x_n\)为未知变量
+
+\section{解的判别和求法}
+\subsection{线性方程组的消元法} 直接对方程组进行消元等操作，此处不再赘述
+\end{document}
