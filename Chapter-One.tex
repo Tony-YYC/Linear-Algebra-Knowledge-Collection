@@ -26,6 +26,12 @@
 \newpage
 
 \part{矩阵}
+\[\begin{pmatrix}
+    a_{11}&a_{12}&\dots&a_{1n}
+    \\a_{21}&a_{22}&\dots&a_{2n}
+    \\ \vdots &\vdots &\vdots &\vdots
+    \\a_{n1}&a_{n2}&\dots&a_{nn}
+\end{pmatrix}\]
 \section{矩阵基本概念}
 \(A=(a_{ij})_{m\times n}\)
 A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
@@ -63,6 +69,30 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \end{description}
 
 \section{矩阵的运算}
+\subsection{矩阵的线性运算}
+\subsubsection{定义}
+\begin{description}
+    \item[数乘] 设\(A=(a_{ij})_{m\times n}\)，称\((ka_{ij})_{m\times n}\)为矩阵A与数k的数量乘积，简称数乘，记为\(k\mathbf{A}\)
+    \item[负矩阵] 特别地，将\((-1)\mathbf{A}\)记为\(-\mathbf{A}\)，称为A的负矩阵
+    \item[加法] 设矩阵\(\mathbf{A}=(a_{ij})_{m\times n}\)与\(\mathbf{B}=(b_{ij})_{m\times n}\)，//称\(m\times n\)矩阵\(\mathbf{C}=(a_{ij}+b_{ij})_{m\times n}\)
+    \item[减法] 称\(\mathbf{A}+(\mathbf{-B})\)为矩阵A与B的差，记为\(\mathbf{A}-\mathbf{B}\)
+\end{description}
+
+\subsubsection{性质} 该部分运算性质与数的运算完全相同，不再赘述
+\subsection{矩阵乘法}
+\subsubsection{定义}
+设\(\mathbf{A}=(a_{ij})_{m\times n}\)，\(\mathbf{B}=(b_{ij})_{n\times s}\)，\(\mathbf{C}=(c_{ij})_{m\times s}\)，其中
+\[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\dots +a_{in}b_{nj}=\sum_{k=1}^n a_{ik}b_{kj}\]
+\[i=1,2,\dots ,m;j=1,2,\dots,s,\]
+称矩阵\(\mathbf{C}\)为矩阵\(\mathbf{A}\)与矩阵\(\mathbf{B}\)的乘积，记为\(\mathbf{C}=\mathbf{A}\mathbf{B}\)
+\subsubsection{性质}
+\begin{enumerate}
+    \item \(\mathbf{A}_{m\times n}\mathbf{0}_{n\times s}=\mathbf{A}_{m\times s}\)  ,  \(\mathbf{0}_{s\times m}\mathbf{A}_{m\times n}=\mathbf{0}_{s\times n}\)
+    \item \(\mathbf{E_m}\mathbf{A}_{m\times n}=\mathbf{A}_{m\times n}\)     ,     \(\mathbf{A}_{m\times n}\mathbf{E_n}=\mathbf{A}_{m\times n}\)
+    \item \(\mathbf{A}(\mathbf{B}\mathbf{C})=(\mathbf{A}\mathbf{B})\mathbf{C}\) （乘法结合律）
+    \item \((k\mathbf{A})\mathbf{B}=k(\mathbf{A}\mathbf{B})=\mathbf{A}(k\mathbf{B})\)
+    \item \(\mathbf{A}(\mathbf{B}+\mathbf{C})=\mathbf{A}\mathbf{B}+\mathbf{A}\mathbf{C}\) （左分配律）， \((\mathbf{B}+\mathbf{C})\mathbf{A}=\mathbf{B}\mathbf{A}+\mathbf{C}\mathbf{A}\) （右分配律）
+\end{enumerate}
 \section{可逆矩阵}
 \section{分块矩阵}
 
