@@ -1,5 +1,8 @@
-\documentclass[UTF-8,a4paper]{ctexbook}
+\documentclass[a4paper]{ctexbook}
 \usepackage{amsmath,amsfonts}
+\newtheorem{definition}{定义}[section]
+\newtheorem{theorem}[section]{定理}
+\newtheorem{property}[section]{性质}
 
 %title
 \begin{document}
@@ -17,35 +20,36 @@ Introduction: This article aims to arrage the knowledge points of the Linear Alg
 \newpage
 
 \part{矩阵}
-\[\begin{pmatrix}
+
+\chapter{矩阵基本概念}
+\[\mathbf{A}=(a_{ij})_{m\times n}=
+\begin{pmatrix}
     a_{11}&a_{12}&\dots&a_{1n}
     \\a_{21}&a_{22}&\dots&a_{2n}
     \\ \vdots &\vdots &\vdots &\vdots
-    \\a_{n1}&a_{n2}&\dots&a_{nn}
+    \\a_{m1}&a_{m2}&\dots&a_{mn}
 \end{pmatrix}\]
-\section{矩阵基本概念}
-\(A=(a_{ij})_{m\times n}\)
 A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 
-\subsection{同型矩阵}
+\section{同型矩阵}
 \kaishu
 矩阵\(A=(a_{ij})_{m\times n}\) \(B=(b_{ij})_{s\times t}\)，\\如果\(m=s,n=t\)，则矩阵A和B为同型矩阵。
 \\直观：形状相同
 
-\subsection{相等矩阵}
+\section{相等矩阵}
 \kaishu
 矩阵\(A=(a_{ij})_{m\times n}\) \(B=(b_{ij})_{s\times t}\),\\
 若同型，且\(a_{ij}=b_{ij}\), \(i=1,2,\dots ,m\),\(j=1,2,\dots ,n\)
 \\则A，B为相等矩阵.
 \\直观：形状相同，且每个位置的元素对应相等
 
-\subsection{主对角线与主对角元}
+\section{主对角线与主对角元}
 \begin{description}
     \item[主对角线] \kaishu 在n阶方阵\(\mathbf{A}\)中，从(1,1)位置到(n,n)位置的直线称为方程的主对角线
     \item[主对角元] \kaishu 主对角线上的元素
 \end{description}
 
-\subsection{常用矩阵}
+\section{常用矩阵}
 \begin{description}
     \item[零矩阵]{\kaishu 元素全为0的矩阵称为零矩阵，记为\(\mathbf 0_{m\times n}\)或\(\mathbf 0\)}
     \item[行（列）矩阵] {\kaishu 仅有一行（列）的矩阵}
@@ -59,9 +63,9 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     \item[反对称矩阵] In matrix \(\mathbf{A}=(a_{ij})_n\), \(a_{ij}=-a_{ji}\), \(i,j=1,2,\dots ,n\) \newline \kaishu 直观：主对角线上下两块对应位置上的元素互为相反数
 \end{description}
 
-\section{矩阵的运算}
-\subsection{矩阵的线性运算}
-\subsubsection{定义}
+\chapter{矩阵的运算}
+\section{矩阵的线性运算}
+\subsection{定义}
 \begin{description}
     \item[数乘] 设\(A=(a_{ij})_{m\times n}\)，称\((ka_{ij})_{m\times n}\)为矩阵A与数k的数量乘积，简称数乘，记为\(k\mathbf{A}\)
     \item[负矩阵] 特别地，将\((-1)\mathbf{A}\)记为\(-\mathbf{A}\)，称为A的负矩阵
@@ -69,14 +73,14 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     \item[减法] 称\(\mathbf{A}+(\mathbf{-B})\)为矩阵A与B的差，记为\(\mathbf{A}-\mathbf{B}\)
 \end{description}
 
-\subsubsection{性质} 该部分运算性质与数的运算完全相同，不再赘述
-\subsection{矩阵乘法}
-\subsubsection{定义}
+\subsection{性质} 该部分运算性质与数的运算完全相同，不再赘述
+\section{矩阵乘法}
+\subsection{定义}
 设\(\mathbf{A}=(a_{ij})_{m\times n}\)，\(\mathbf{B}=(b_{ij})_{n\times s}\)，\(\mathbf{C}=(c_{ij})_{m\times s}\)，其中
 \[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\dots +a_{in}b_{nj}=\sum_{k=1}^n a_{ik}b_{kj}\]
 \[i=1,2,\dots ,m;j=1,2,\dots,s,\]
 称矩阵\(\mathbf{C}\)为矩阵\(\mathbf{A}\)与矩阵\(\mathbf{B}\)的乘积，记为\(\mathbf{C}=\mathbf{A}\mathbf{B}\)
-\subsubsection{性质}
+\subsection{性质}
 \begin{enumerate}
     \item \(\mathbf{A}_{m\times n}\mathbf{0}_{n\times s}=\mathbf{A}_{m\times s}\)  ,  \(\mathbf{0}_{s\times m}\mathbf{A}_{m\times n}=\mathbf{0}_{s\times n}\)
     \item \(\mathbf{E_m}\mathbf{A}_{m\times n}=\mathbf{A}_{m\times n}\)     ,     \(\mathbf{A}_{m\times n}\mathbf{E_n}=\mathbf{A}_{m\times n}\)
@@ -84,49 +88,115 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     \item \((k\mathbf{A})\mathbf{B}=k(\mathbf{A}\mathbf{B})=\mathbf{A}(k\mathbf{B})\)
     \item \(\mathbf{A}(\mathbf{B}+\mathbf{C})=\mathbf{A}\mathbf{B}+\mathbf{A}\mathbf{C}\) （左分配律）， \((\mathbf{B}+\mathbf{C})\mathbf{A}=\mathbf{B}\mathbf{A}+\mathbf{C}\mathbf{A}\) （右分配律）
 \end{enumerate}
-\section{可逆矩阵}
-\section{分块矩阵}
+
+\subsection{可换矩阵}
+\begin{definition}
+两个矩阵\(\mathbf{A}\)，\(\mathbf{B}\)，如果\(\mathbf{AB}=\mathbf{BA}\)，那么称矩阵\(\mathbf{A}\)，\(\mathbf{B}\)相乘可换，简称\(\mathbf{A}\)，\(\mathbf{B}\)可换.
+\end{definition}
+\subsubsection{一些推论}
+\begin{enumerate}
+    \item 若\(\mathbf{A}\)，\(\mathbf{B}\)相乘可换，则\(\mathbf{A}\)，\(\mathbf{B}\)必是同阶方阵
+    \item 单位矩阵和与之同阶的方阵相乘可换
+    \item 数量矩阵和与之同阶的方阵相乘可换
+    \item 同阶对角矩阵相乘可换
+\end{enumerate}
+
+\section{方阵的幂}
+\begin{definition}
+    设\(\mathbf{A}\)是n阶方阵，k为正整数，
+    \\k个\(\mathbf{A}\)相乘称为\(\mathbf{A}\)的k次幂，记为\(\mathbf{A^k}\)，即\(\mathbf{A^k}= \overbrace{\mathbf{A}\cdot \mathbf{A}\cdot \dots \cdot \mathbf{A}}^{k*A} \)
+    \\规定\(\mathbf{A^0}=\mathbf{E_n}\)    
+\end{definition}
+\begin{property}
+    设A为方阵，k,l为非负整数，则
+    \[A^k \cdot A^l=A^{k+l} , (A^k)^l=A^{kl}\]
+\end{property}
+\begin{definition}
+    \textbf{方阵的多项式}
+    \\ 设\(\mathbf{A}\)是方阵，\(\mathbf{E}\)为与\(\mathbf{A}\)同阶的单位矩阵 \\
+    称\(f(\mathbf{A})=a_m\mathbf{A}^m+a_m\mathbf{A}^m+ \dots + a_0E\)是由\(f(x)\)决定的方阵\(\mathbf{A}\)的多项式
+\end{definition}
+\section{矩阵的转置}
+\begin{definition}
+    设数域F上的矩阵\(\mathbf{A}=(a_{ij})_{m\times n}\)，称\(n\times m\)的矩阵
+    \[\begin{pmatrix}
+        a_{11}&a_{21}&\dots&a_{m1}
+        \\a_{12}&a_{22}&\dots&a_{m2}
+        \\ \vdots &\vdots &\vdots &\vdots
+        \\a_{1n}&a_{2n}&\dots&a_{mn}
+    \end{pmatrix}\]
+    为矩阵A的转置矩阵，记为\(\mathbf{A}^\mathrm{T}\)
+\end{definition}
+\begin{property}
+       \textbf{转置矩阵的运算性质}\\
+    \begin{enumerate}
+        \item \((\mathbf{A}^\mathrm{T})^\mathrm{T}=A\)
+        \item \((\mathbf{B}+\mathbf{C})^\mathrm{T}=\mathbf{B}^\mathrm{T}+\mathbf{C}^\mathrm{T}\)
+        \item \((k\mathbf{A})^\mathrm{T}=k\mathbf{A}^\mathrm{T}\)
+        \item \((\mathbf{A}\mathbf{B})^\mathrm{T}=\mathbf{B}^\mathrm{T}\mathbf{A}^\mathrm{T}\)  \((\mathbf{A}_1\mathbf{A}_2\dots \mathbf{A}_m)^\mathrm{T}=\mathbf{A}_m^\mathrm{T}\mathbf{A}_{m-1}^\mathrm{T}\dots \mathbf{A}_2^\mathrm{T}\mathbf{A}_1^\mathrm{T}\)
+        \item 若\(\mathbf{A}\)为方阵，则\((\mathbf{A}^m)^\mathrm{T}=(\mathbf{A}^\mathrm{T})^m\),m为正整数
+        \item \(\mathbf{A}\)为对称矩阵\(\Leftrightarrow \mathbf{A}^\mathrm{T}=\mathbf{A}\)，\(\mathbf{A}\)为反对称矩阵\(\Leftrightarrow \mathbf{A}^\mathrm{T}=-\mathbf{A}\)
+    \end{enumerate}
+\end{property}
+
+\section{方阵的迹}
+\begin{definition}
+    设数域F上的方阵\(\mathbf{A}=(a_{ij})_{m\times n}\) ，称\(\sum\limits_{i=1}^n a_{ii}\)为方阵A的迹，记为\(tr(\mathbf{A})\) ，即\(tr(A)=\sum\limits_{i=1}^n a_{ii}\)
+\end{definition}
+\begin{property}
+    \begin{enumerate}
+        \item \(tr(\mathbf{A}+\mathbf{B})=tr(\mathbf{A})+tr(\mathbf{B})\)
+        \item \(tr(k\mathbf{A})=ktr(\mathbf{A})\)
+        \item \(tr(\mathbf{A}\mathbf{B})=tr(\mathbf{B}\mathbf{A})\)
+        \item \(tr(\mathbf{A}^\mathrm{T})=tr(\mathbf{A})\)
+    \end{enumerate}
+\end{property}
+\chapter{可逆矩阵}
+\chapter{分块矩阵}
 
 
-\section{矩阵的初等行变换}
-
-\subsection{定义}
-\subsubsection{初等行变换}
-\kaishu 矩阵的下面三种行为，称之为矩阵的初等行变换（行变换）：
+\chapter{矩阵的初等行变换}
+\section{初等行变换}
+\begin{definition}
+    \kaishu 矩阵的下面三种行为，称之为矩阵的初等行变换（行变换）：
 \begin{enumerate}
     \item 交换矩阵的i,j两行，记为\(r_i \leftrightarrow r_j \)
     \item 矩阵的第i行非零常数k倍，记为\(kr_i\)
     \item 矩阵的第i行的常数k倍加到第j行，记为\(r_j+kr_i\)(顺序不可反)
 \end{enumerate}
+\end{definition}
 
-\subsubsection{行阶梯形矩阵}
-满足下面两个条件的矩阵称为行阶梯形矩阵，简称阶梯形矩阵：
+\section{阶梯形矩阵}
+\begin{definition}
+    满足下面两个条件的矩阵称为行阶梯形矩阵，简称阶梯形矩阵：
 \begin{enumerate}
     \item 零行（元素全为零的行）排在所有非零行的下方
     \item 每个非零行的第一个（从左至右）非零元（称为主元）的列标号，从上到下，严格递增
 \end{enumerate}
+\end{definition}
 
-\subsubsection{简化阶梯形（行最简形）矩阵}
-一个阶梯形矩阵若满足下面两条性质，称之为（行）简化阶梯形（或行最简形）矩阵基本概念
+\begin{definition}
+    一个阶梯形矩阵若满足下面两条性质，称之为（行）简化阶梯形（或行最简形）矩阵基本概念
 \begin{enumerate}
     \item 主元均为1
     \item 主元所在列的其他元素全为零
 \end{enumerate}
-
-\subsection{定理}
-\subsubsection{} 任何一个矩阵都可以经过初等行变换化为阶梯形矩阵或者简化阶梯形矩阵
+\end{definition}
 
 
 
+\begin{theorem}
+    任何一个矩阵都可以经过初等行变换化为阶梯形矩阵或者简化阶梯形矩阵
+\end{theorem}
 
 \part{线性方程组}
-\section{数域}
+\chapter{数域}
 \begin{enumerate}
     \item 设\(\mathbf{F}\)为一个数集，如果\(\mathbf{F}\)中任意两个数做某种运算的结果仍属于\(\mathbf{F}\)，称数集F对这种运算封闭
     \item 设\(\mathbf{F}\)是包含0和1的数集，若\(\mathbf{F}\)对四则运算封闭，则称\(\mathbf{F}\)为一个数域，记为F
 \end{enumerate}
-\section{线性方程组的基本概念}
-\subsection{线性方程组定义}
+\chapter{线性方程组的基本概念}
+\section{线性方程组定义}
 形如
 \[\begin{cases}
     a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1\\
@@ -137,29 +207,29 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \]
 称为一个m个方程n个未知量的线性方程组，简记为\(m \times n\)的线性方程组或线性系统。其中\(a_{ij} \in F, i=1,2,\dots ,m; j=1,2,\dots,  x_1 , x_2 , \dots , x_n\)为未知变量，\(a_{ij}\)表示第i个方程中的第j个未知量\(x_j\)前面的系数，\(b_i\)为第i个方程的常数项。
 
-\subsection{解集的定义}
+\section{解集的定义}
 若存在一组数 \(c_1,c_2,\dots ,c_n \in F\) 满足方程组的每个方程，\\则称\(x_1=c_1,x_2=c_2,\dots ,x_n=c_n\) 为方程组的一组解或者一个解，记为\((c_1,c_2,\dots ,c_n)\).方程组的全体解所构成的集合称为该方程组的解集。
 
-\subsection{同解方程组}
+\section{同解方程组}
 如果两个方程组的解集相同，则称这两个方程组为同解方程组或者两个方程组同解。
 
-\section{解的判别与求法}
-\subsection{线性方程组的消元法} 直接对方程组进行消元等操作，此处不再赘述
-\subsection{高斯消元法} 线性方程组对应的增广矩阵\(\mathbf {\tilde A}\)通过初等行变换化为一个（简化）阶梯形矩阵，通过（简化）阶梯形矩阵求解线性方程组的方式，称为线性方程组的高斯消元法。
-\subsubsection{定理：解的不变性} 线性方程组的高斯消元法得到的新方程组与原方程组同解
-\subsubsection{定理：线性方程组解的判别} \(m \times n\)的线性方程组，其增广矩阵化为阶梯形矩阵有r个非零行，期中对应于方程组的系数矩阵部分有s个非零行.则线性方程组有解的充分必要条件为\(s=r\)且
+\chapter{解的判别与求法}
+\section{线性方程组的消元法} 直接对方程组进行消元等操作，此处不再赘述
+\section{高斯消元法} 线性方程组对应的增广矩阵\(\mathbf {\tilde A}\)通过初等行变换化为一个（简化）阶梯形矩阵，通过（简化）阶梯形矩阵求解线性方程组的方式，称为线性方程组的高斯消元法。
+\subsection{定理：解的不变性} 线性方程组的高斯消元法得到的新方程组与原方程组同解
+\subsection{定理：线性方程组解的判别} \(m \times n\)的线性方程组，其增广矩阵化为阶梯形矩阵有r个非零行，期中对应于方程组的系数矩阵部分有s个非零行.则线性方程组有解的充分必要条件为\(s=r\)且
 \begin{enumerate}
     \item \(s=r=n\)，原方程组有唯一解
     \item \(s=r<n\)，原方程组有无穷多解
     \item \(s<r\)，原方程组无解
 \end{enumerate}
-\subsubsection{推论：齐次线性方程组解的判别} \(m \times n\)的齐次线性方程组，其系数矩阵的阶梯形的非零行数为s，则
+\subsection{推论：齐次线性方程组解的判别} \(m \times n\)的齐次线性方程组，其系数矩阵的阶梯形的非零行数为s，则
 \begin{enumerate}
     \item 齐次线性方程组唯一零解的充分必要条件为\(s=n\)
     \item 其次线性方程组有无穷多解，即有非零解的充分必要条件为\(s<n\)
     \item 如果\(m<n\)，则齐次线性方程组必有非零解
 \end{enumerate}
-\subsubsection{解题方法：非齐次方程组的求解}
+\subsection{解题方法：非齐次方程组的求解}
 \begin{enumerate}
     \item 将增广矩阵初等行变换到阶梯形
     \item 判断解的情况
@@ -170,7 +240,7 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
         \end{itemize}}
 \end{enumerate}
 
-\subsubsection{解题方法：齐次方程组的求解}
+\subsection{解题方法：齐次方程组的求解}
 \begin{enumerate}
     \item 将系数矩阵初等行变换到阶梯形
     \item 判断解的情况
