@@ -250,4 +250,83 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
         \end{itemize}}
 \end{enumerate}
 
+\part{行列式}
+\chapter{行列式的定义}
+\section{二阶，三阶行列式}
+\begin{definition}
+    \textbf{二阶行列式}
+    \\设2阶方阵\(A=(a_{ij})_{2\times 2}\)，称
+    \[\begin{vmatrix}
+        a_{11}&a_{12}
+        \\a_{21}&a_{22}
+    \end{vmatrix}=a_{11}a_{22}-a_{12}a_{21}\]
+    为2阶方阵\(\mathbf{A}\)的行列式,记为\(\rvert\mathbf{A}\rvert\)或\(det{\mathbf{A}}\)
+    \\ \(a_{ij}\)为该行列式的元素
+    \\通常用字母D来表示行列式
+\end{definition}
+\begin{definition}
+    \textbf{三阶行列式}
+    \\设3阶方阵\(A=(a_{ij})_{3\times 3}\)，称
+    \[\begin{vmatrix}
+        a_{11}&a_{12}&a_{13}
+        \\a_{21}&a_{22}&a_{23}
+        \\a_{31}&a_{32}&a_{33}
+    \end{vmatrix}=a_{11}
+    \begin{vmatrix}
+        a_{22}&a_{23}
+        \\a_{32}&a_{33}
+    \end{vmatrix}-a_{12}
+    \begin{vmatrix}
+        a_{21}&a_{23}
+        \\a_{31}&a_{33}
+    \end{vmatrix}+a_{13}
+    \begin{vmatrix}
+        a_{21}&a_{22}
+        \\a_{31}&a_{32}
+    \end{vmatrix}\]
+    为3阶方阵\(\mathbf{A}\)的行列式,可记为\(\rvert{a_{ij}}\rvert_3\)或\(\rvert\mathbf{A}\rvert\)或\(det{\mathbf{A}}\)
+    \\其中的二阶行列式为依次划去\(a_{1j} (j=1,2,3)\)所在的行（第1行）和列（第j列），剩下的元素按原来的位置不动得到的行列式
+\end{definition}
+
+\section{n阶行列式}
+\begin{definition}
+    \textbf{余子式和代数余子式}
+    \\设n阶方阵\[\mathbf{A}=
+    \begin{pmatrix}
+        a_{11}&\dots&a_{1j}&\dots&a_{1n}
+        \\ \vdots&&\vdots&&\vdots
+        \\ a_{i1}&\dots&a_{ij}&\dots&a_{in}
+        \\ \vdots&&\vdots&&\vdots
+        \\ a_{n1}&\dots&a_{nj}&\dots&a_{nn}
+    \end{pmatrix}\]
+    划去\(a_{ij}\)所在的行（第i行）和列（第j列），剩下的元素按原来的相对位置不动构成n-1阶方阵，它的行列式
+    \[\begin{vmatrix}
+        a_{11}&\dots&a_{1,j-1}&a_{1,j+1}&\dots&a_{1n}
+        \\\vdots&&\vdots&\vdots&&\vdots
+        \\a_{i-1,1}&\dots&a_{i-1,j-1}&a_{i-1,j+1}&\dots&a_{i-1,n}
+        \\a_{i+1,1}&\dots&a_{i+1,j-1}&a_{i+1,j+1}&\dots&a_{i+1,n}
+        \\\vdots&&\vdots&\vdots&&\vdots
+        \\a_{n1}&\dots&a_{n,j-1}&a_{n,j+1}&\dots&a_{nn}
+    \end{vmatrix}\]
+    记为元素\(a_{ij}\)的余子式，记为\(\mathbf{M}_{ij}\)
+    \\称\((-1)^{i+j}\mathbf{M}_{ij}\)为元素\(a_{ij}\)的代数余子式，记为\(\mathbf{A}_{ij}\)，即\(\mathbf{A}_{ij}=(-1)^{i+j}\mathbf{M}_{ij}\)
+\end{definition}
+\begin{definition}
+    \textbf{n阶行列式}\\
+    设n阶方阵\(A=(a_{ij})_{m\times n}\)，称
+    \[\begin{vmatrix}
+        a_{11}&a_{12}&\dots&a_{1n}
+        \\a_{21}&a_{22}&\dots&a_{2n}
+        \\ \vdots &\vdots &\vdots &\vdots
+        \\a_{n1}&a_{n2}&\dots&a_{nn}
+    \end{vmatrix}\]
+    为n阶方阵\(\mathbf{A}\)的行列式记为\(\rvert{a_{ij}}\rvert_n\)，或\(\rvert\mathbf{A}\rvert\)或\(det{\mathbf{A}}\)
+    \\当n=1时，\(\rvert\mathbf{A}\rvert=\rvert a_{11}\rvert = a_{11}\)
+    \\当\(n\geq 2\)时，\(\rvert\mathbf{A}\rvert=a_{11}\mathbf{A}_{11}+a_{12}\mathbf{A}_{12}+\dots+a_{1n}\mathbf{A}_{1n}=\sum\limits_{k=1}^n a_{1k}\mathbf{A}_{1k}=\sum\limits_{k=1}^n (-1)^{1+k}a_{1k}\mathbf{M}_{1k}\)
+    \\其中\(\mathbf{A}_{1k}\)为\(a_{1k}\)的代数余子式，\(\mathbf{M}_{1k}\)为\(a_{1k}\)的余子式
+\end{definition}
+\begin{definition}
+    \textbf{使用列的等价定义}
+    \\ \(\rvert\mathbf{A}\rvert=\rvert{a_{ij}}\rvert_n=\sum\limits_{i=1}^n a_{i1}\mathbf{A}_{i1}=\sum\limits_{i=1}^n (-1)^{i+1}a_{i1}\mathbf{M}_{i1}\)
+\end{definition}
 \end{document}
