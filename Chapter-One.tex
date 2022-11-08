@@ -253,7 +253,7 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 
 
 \chapter{矩阵的初等行变换}
-\section{初等行变换}
+\section{初等行（列）变换}
 \begin{definition}
     \kaishu 矩阵的下面三种行为，称之为矩阵的初等行变换（行变换）：
 \begin{enumerate}
@@ -263,6 +263,27 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \end{enumerate}
 \end{definition}
 
+\begin{definition}
+    \kaishu 矩阵\(\mathbf{A}^\mathrm{T}\)的行变换，称之为矩阵\(\mathbf{A}\)的初等列变换（列变换）：
+\begin{enumerate}
+    \item 交换矩阵的i,j两列，记为\(c_i \leftrightarrow c_j \)
+    \item 矩阵的第i列非零常数k倍，记为\(kc_i\)
+    \item 矩阵的第i列的常数k倍加到第j列，记为\(c_j+kc_i\)(顺序不可反)
+\end{enumerate}
+\end{definition}
+\section{矩阵相抵}
+\begin{definition}
+    矩阵\(\mathbf{A}\)经有限次初等变换得到矩阵\(\mathbf{B}\)则称矩阵\(\mathbf{A}\)与矩阵\(\mathbf{B}\)相抵，记为\(\mathbf{A}\cong \mathbf{B}\)
+\end{definition}
+\begin{property}
+    显然，矩阵相抵有以下性质：
+    \begin{enumerate}
+        \item 反身性：\(\mathbf{A}\cong \mathbf{A}\)
+        \item 对称性：若\(\mathbf{A}\cong \mathbf{B}\)，则\(\mathbf{B}\cong \mathbf{A}\)
+        \item 传递性：\(\mathbf{A}\cong \mathbf{B}\cong \mathbf{C}\)，则\(\mathbf{A}\cong \mathbf{C}\)
+    \end{enumerate}
+\end{property}
+
 \section{阶梯形矩阵}
 \begin{definition}
     满足下面两个条件的矩阵称为行阶梯形矩阵，简称阶梯形矩阵：
@@ -271,7 +292,6 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     \item 每个非零行的第一个（从左至右）非零元（称为主元）的列标号，从上到下，严格递增
 \end{enumerate}
 \end{definition}
-
 \begin{definition}
     一个阶梯形矩阵若满足下面两条性质，称之为（行）简化阶梯形（或行最简形）矩阵基本概念
 \begin{enumerate}
@@ -285,6 +305,47 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \begin{theorem}
     任何一个矩阵都可以经过初等行变换化为阶梯形矩阵或者简化阶梯形矩阵
 \end{theorem}
+
+\section{初等矩阵}
+\begin{definition}
+单位矩阵经过一次初等变换以后得到的矩阵
+\begin{enumerate}
+    \item \(\mathbf{E}\xrightarrow[r_i\leftrightarrow r_j]{c_i\leftrightarrow c_j}\mathbf{E}(i,j)\)
+    \item \(\mathbf{E}\xrightarrow[kr_i]{kc_i}\mathbf{E}(i(k))\)
+    \item \(\mathbf{E}\xrightarrow[r_j+kr_i]{c_i+kc_j}\mathbf{E}(i,j(k))\)
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    \textbf{行左列右}
+    \\设\(\mathbf{A}\)是一个\(m \times n\)，对\(\mathbf{A}\)进行一次初等行变换相当于在\(\mathbf{A}\)的左边乘一个相应类型的m阶初等矩阵；对\(\mathbf{A}\)进行一次初等列变换相当于在\(\mathbf{A}\)的右边乘以一个相应类型的n阶矩阵
+    \\ \textbf{推论}
+    初等矩阵都是可逆矩阵，且有
+    \begin{enumerate}
+        \item \(\mathbf{E}(i,j)^{-1}=\mathbf{E}(i,j)\)
+        \item \(\mathbf{E}(i(k))^{-1}=\mathbf{E}(i(\dfrac{1}{k}))\)
+        \item \(\mathbf{E}(j,i(k))^{-1}=\mathbf{E}(j,i(-k))\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    对任意的\(m\times n\)矩阵\(\mathbf{A}\)，存在一系列m阶初等矩阵\(\mathbf{P}_1,\mathbf{P}_2,\dots,\mathbf{P}_s\)
+    \\及n阶初等矩阵\(\mathbf{Q}_1,\mathbf{Q}_2,\dots,\mathbf{Q}_t\)使得
+    \[\mathbf{P}_s\dots \mathbf{P}_2\mathbf{P}_1\mathbf{A}\mathbf{Q}_1\mathbf{Q}_2\dots\mathbf{Q}_t
+    =\begin{pmatrix}
+        \mathbf{E_r}&\mathbf{0}
+        \\ \mathbf{0}&\mathbf{0}
+    \end{pmatrix}\]
+    为标准形，其中\(\mathbf{E_r}\)为r阶单位矩阵，r是\(\mathbf{A}\)的行阶梯形中非零行的行数
+\end{theorem}
+
+\section{矩阵的秩}
+\begin{definition}
+    设\(\mathbf{A}\)为\(m \times n\)的矩阵，在\(\mathbf{A}\)中任取k行k列(\(k\leq min\{m,n\}\))，位于这些行列交叉处的元素按原来的相对位置构成的k阶方阵的行列式，称为矩阵\(\mathbf{A}\)的k级（阶）子式
+\end{definition}
+\begin{definition}
+    设\(\mathbf{A}\)为\(m \times n\)的矩阵，在\(\mathbf{A}\)中若存在一个r阶子式不等于零，而所有的r+1阶子式都等于零（如果存在的话），称r为矩阵的秩，记为\(r\mathbf(A)\)。规定零矩阵的秩为零
+\end{definition}
 
 \part{线性方程组}
 \chapter{数域}
