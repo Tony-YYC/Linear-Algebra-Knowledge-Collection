@@ -1,9 +1,10 @@
-\documentclass[a4paper]{ctexbook}
+\documentclass{ctexbook}
 \usepackage{amsmath,amsfonts}
 \usepackage{rotating}
-\newtheorem{definition}{定义}[section]
-\newtheorem{theorem}[section]{定理}
-\newtheorem{property}[section]{性质}
+\newtheorem{definition}[subsection]{定义}
+\newtheorem{theorem}[subsection]{定理}
+\newtheorem{property}[subsection]{性质}
+\newtheorem{method}[subsection]{基本方法}
 
 %title
 \begin{document}
@@ -195,6 +196,10 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     \item \(\rvert \mathbf{A}^{-1}\rvert=\dfrac{1}{\rvert \mathbf{A} \rvert}\)
 \end{enumerate}
 
+\section{可逆矩阵求法}
+\subsection{初等变换法求逆矩阵}
+见第\pageref{reverseMatrix}页第\ref{reverseMatrix}节
+
 \chapter{分块矩阵}
 \section{定义}
 \begin{definition}
@@ -204,6 +209,7 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \subsection{加减法}
 与矩阵定义相同，但操作的两个矩阵必须同型并且采用相同的分块法（即每一组对应的分块都应该同型）
 \subsection{乘法}
+\label{dividedMatrixMulti}
 \begin{enumerate}
     \item \(\mathbf{A}\)的列分块法必须与\(\mathbf{B}\)的行分块法相同
     \item 操作方法与矩阵乘法类似：\(\mathbf{C}_{ij}=\sum\limits_{k=1}^s \mathbf{A}_{ik}\mathbf{B}_{kj}\)
@@ -317,7 +323,7 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
 \end{definition}
 
 \begin{theorem}
-    \textbf{行左列右}
+    \textbf{初等矩阵与初等变换的关系：行左列右}
     \\设\(\mathbf{A}\)是一个\(m \times n\)，对\(\mathbf{A}\)进行一次初等行变换相当于在\(\mathbf{A}\)的左边乘一个相应类型的m阶初等矩阵；对\(\mathbf{A}\)进行一次初等列变换相当于在\(\mathbf{A}\)的右边乘以一个相应类型的n阶矩阵
     \\ \textbf{推论}
     初等矩阵都是可逆矩阵，且有
@@ -339,13 +345,101 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     为标准形，其中\(\mathbf{E_r}\)为r阶单位矩阵，r是\(\mathbf{A}\)的行阶梯形中非零行的行数
 \end{theorem}
 
-\section{矩阵的秩}
+\section{一些应用和基本方法}
+\begin{method}
+    \label{reverseMatrix}
+    \textbf{求逆矩阵的初等变换法}
+    \\构造矩阵:
+    \((\mathbf{A}\quad|\quad\mathbf{E})\xrightarrow[]{r}(\mathbf{E}\quad|\quad\mathbf{A}^{-1})\)
+\end{method}
+
+\begin{method}
+    \textbf{使用初等变换法求解矩阵方程}
+    \[\mathbf{A}\mathbf{X}=\mathbf{B} \Rightarrow \mathbf{X}=\mathbf{A}^{-1}\mathbf{B}\]
+    \[(\mathbf{A}\quad|\quad\mathbf{B})_{n\times (n+m)}\xrightarrow{r}(\mathbf{E}\quad|\quad\mathbf{A}^{-1}\mathbf{B})\]
+    \\similarly
+    \[\mathbf{X}\mathbf{A}=\mathbf{B} \Rightarrow \mathbf{X}=\mathbf{B}\mathbf{A}^{-1}\Rightarrow \mathbf{X}^\mathrm{T}=(\mathbf{A}^\mathrm{T})^{-1}\mathbf{B}^\mathrm{T} \]
+    \[(\mathbf{A}^\mathrm{T}\quad|\quad\mathbf{B}^\mathrm{T})_{n\times (n+m)}\xrightarrow{r}(\mathbf{E}\quad|\quad(\mathbf{A}^\mathrm{T})^{-1}\mathbf{B}^\mathrm{T})\]
+\end{method}
+
+\section{分块矩阵的初等变换与分块初等矩阵}
 \begin{definition}
-    设\(\mathbf{A}\)为\(m \times n\)的矩阵，在\(\mathbf{A}\)中任取k行k列(\(k\leq min\{m,n\}\))，位于这些行列交叉处的元素按原来的相对位置构成的k阶方阵的行列式，称为矩阵\(\mathbf{A}\)的k级（阶）子式
+    \textbf{分块初等矩阵}
+    均为矩阵的初等变换和初等矩阵定义的扩展
 \end{definition}
 \begin{definition}
+    对分块矩阵作一次初等行（列）变换，相当于用相应的分块初等矩阵左（右）乘此分块矩阵。
+    \\ \textbf{注意：要遵循分块矩阵的乘法中对于两个相乘矩阵的分块法的要求}
+    \\具体见\pageref{dividedMatrixMulti}页\ref{dividedMatrixMulti}节
+\end{definition}
+
+
+\chapter{矩阵的秩}
+\section{定义}
+\begin{definition}
+    \textbf{子式}
+    \\设\(\mathbf{A}\)为\(m \times n\)的矩阵，在\(\mathbf{A}\)中任取k行k列(\(k\leq min\{m,n\}\))，位于这些行列交叉处的元素按原来的相对位置构成的k阶方阵的行列式，称为矩阵\(\mathbf{A}\)的k级（阶）子式
+\end{definition}
+\begin{definition}
+    \textbf{矩阵的秩}
+    \\
     设\(\mathbf{A}\)为\(m \times n\)的矩阵，在\(\mathbf{A}\)中若存在一个r阶子式不等于零，而所有的r+1阶子式都等于零（如果存在的话），称r为矩阵的秩，记为\(r\mathbf(A)\)。规定零矩阵的秩为零
 \end{definition}
+
+\section{性质}
+\begin{property}
+    设矩阵\(\mathbf{A}_{m \times n}\)，则
+    \begin{enumerate}
+        \item 矩阵A的秩是唯一的
+        \item \(0\leq \mathbf{A} \leq min\{m,n\}\)
+        \item 设\(\mathbf{A_1}\)是\(\mathbf{A}\)的一个部分矩阵，则\(r(\mathbf{A_1}) \leq r(\mathbf{A})\)
+        \item 若\(\mathbf{A}\)中存在r阶子式不为零，则\(r(\mathbf{A}) \geq r\)；若\(\mathbf{A}\)中所有r阶子式全为零，则\(r(\mathbf{A})<r\)
+        \item \(r(\mathbf{A}^\mathrm{T})=r(\mathbf{A})\)
+        \item \(r(k\mathbf{A})=\begin{cases}
+            r(\mathbf{A}),\quad k \neq 0,
+            \\0,\quad k=0.
+        \end{cases}\)
+        \item 阶梯形矩阵的秩等于它的非零行的个数
+        \item 可逆矩阵的秩等于它的阶数
+    \end{enumerate}
+\end{property}
+
+\section{矩阵的秩的不变性}
+\begin{theorem}
+    初等变换不改变矩阵的秩
+\end{theorem}
+
+\section{与标准型和可逆矩阵的关系}
+\begin{theorem}
+    对任意的\(m\times n\)矩阵\(\mathbf{A}\)，存在一系列m阶初等矩阵\(\mathbf{P}_1,\mathbf{P}_2,\dots,\mathbf{P}_s\)
+    \\及n阶初等矩阵\(\mathbf{Q}_1,\mathbf{Q}_2,\dots,\mathbf{Q}_t\)使得
+    \(\mathbf{P}_s\dots \mathbf{P}_2\mathbf{P}_1\mathbf{A}\)为简化阶梯形矩阵；且
+    \[\mathbf{P}_s\dots \mathbf{P}_2\mathbf{P}_1\mathbf{A}\mathbf{Q}_1\mathbf{Q}_2\dots\mathbf{Q}_t
+    =\begin{pmatrix}
+        \mathbf{E_r}&\mathbf{0}
+        \\ \mathbf{0}&\mathbf{0}
+    \end{pmatrix}_{m \times n}\]
+    为标准形，其中\(r=r(\mathbf{A})\)，且标准形唯一。
+    \\ \textbf{一系列重要推论}
+    \begin{enumerate}
+        \item 任意矩阵\(\mathbf{A}_{m \times n}\)，存在一系列m阶可逆矩阵\(\mathbf{P}\)和n阶可逆矩阵\(\mathbf{Q}\)，使得
+        \[ \mathbf{P}\mathbf{A}\mathbf{Q}=\begin{pmatrix}
+            \mathbf{E_r}&\mathbf{0}
+            \\ \mathbf{0}&\mathbf{0}
+        \end{pmatrix}_{m \times n},r=r(\mathbf{A})\]
+        \item n阶矩阵\(\mathbf{A}\)可逆的充分必要条件为\(\mathbf{A}\)的标准形为n阶单位矩阵\(\mathbf{E_n}\)
+        \item n阶矩阵\(\mathbf{A}\)可逆的充分必要条件为\(\mathbf{A}=\mathbf{P}_1,\mathbf{P}_2,\dots,\mathbf{P}_k\)，其中\(\mathbf{P_i}(i=1,2,\dots,k)\)为初等矩阵
+        \item 若\(\mathbf{A_n}\)可逆，则\(\mathbf{A}\)可只经过行变换化为单位矩阵.
+        \item 矩阵\(\mathbf{A}_{m\times n},\mathbf{P}_m,\mathbf{Q}_n\)分别为m阶和n阶可逆矩阵，则\[r(\mathbf{P}\mathbf{A})=r(\mathbf{A})=r(\mathbf{A}\mathbf{Q})=r(\mathbf{P}\mathbf{A}\mathbf{Q})\]
+        \item 矩阵\(\mathbf{A}_{m \times n}\)与\(\mathbf{B}_{m \times n}\)相抵的充分必要条件为
+        \\ \(\exists\)可逆矩阵\(\mathbf{P},\mathbf{Q}\)，\(s.t. \mathbf{P}\mathbf{A}\mathbf{Q}=\mathbf{B}\)
+    \end{enumerate}
+    \begin{theorem}
+        \textbf{矩阵的秩与线性方程组解的判别}
+        \\见第\pageref{equation&r}页第\ref{equation&r}节
+    \end{theorem}
+\end{theorem}
+
 
 \part{线性方程组}
 \chapter{数域}
@@ -407,6 +501,31 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
         \item 若有非零解，写出简化阶梯形对应的方程组，从而确定自由未知量，写出所有解（称为一般解）。
         \end{itemize}}
 \end{enumerate}
+
+\section{线性方程组解的判别与矩阵的秩}
+\label{equation&r}
+\begin{theorem}
+    设\(\mathbf{A}\)是\(m \times n\)的矩阵，线性方程组\(\mathbf{A}\mathbf{x}=\mathbf{b}\)经初等行变换得到的新方程组\(\mathbf{A}_1\mathbf{x}=\mathbf{b_1}\)与原方程组同解
+\end{theorem}
+
+\begin{theorem}
+    \(m \times n\)的线性方程组\(\mathbf{A}\mathbf{x}=\mathbf{b}\)，增广矩阵为\(\tilde{\mathbf{A}}=(\mathbf{A} \quad \mathbf{b})\)则线性方程组有解的充分必要条件为线性方程组的系数矩阵的秩等于其增广矩阵的秩，即\(r(\mathbf{A})=r(\tilde{\mathbf{A}})\),且
+    \begin{enumerate}
+        \item \(r(\mathbf{A})=r(\tilde{\mathbf{A}})=n\)，原方程组有唯一解；
+        \item \(r(\mathbf{A})=r(\tilde{\mathbf{A}})<n\)，原方程组有无穷多解；
+        \item \(r(\mathbf{A})<r(\tilde{\mathbf{A}})\)，原方程组无解；
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    \(m \times n\)的线性方程组\(\mathbf{A}\mathbf{x}=\mathbf{0}\)，则
+    \begin{enumerate}
+        \item 齐次线性方程组有唯一零解的充分必要条件为\(r(\mathbf{A})=n\);
+        \item 齐次线性方程组有无穷多解，即有非零解的充分必要条件为\(r(\mathbf{A})<n\)
+        \item 如果\(m<n\)，则齐次线性方程组必有非零解；
+        \item 当\(m=n\)时，齐次线性方程组有唯一零解的充分必要条件为\(\rvert \mathbf{A} \rvert \neq 0\)，有非零解的充分必要条件为\(\rvert \mathbf{A} \rvert = 0\)
+    \end{enumerate}
+\end{theorem}
 
 \part{行列式}
 \chapter{行列式的定义}
