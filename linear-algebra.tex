@@ -1,4 +1,4 @@
-\documentclass{ctexbook}
+\documentclass[12pt,oneside]{ctexbook}
 \usepackage{amsmath,amsfonts}
 \usepackage{rotating}
 \newtheorem{definition}[subsection]{定义}
@@ -671,4 +671,87 @@ A为m行n列的矩阵，\(a_{ij}\)为第i行j列的元素
     方阵A的某行k倍加到另一行，得到方阵\(\mathbf{B}\)，\(\mathbf{A} \xrightarrow{r_j+kr_i} \mathbf{B}\)，
     \\则\(\rvert\mathbf{B}\rvert=\rvert\mathbf{A}\rvert\)
 \end{property}
+
+\part{向量}
+\definition{n维向量}
+n个数\(a_1,a_2,\dots,a_n\)组成的有序数组\((a_1,a_2,\dots,a_n)\)称为n维向量，称\(a_i\)为向量的第i个分量，n称为该向量的维数。
+例如，
+\[\alpha = (a_1,a_2,\dots,a_n) \quad or \quad \alpha =\begin{pmatrix}
+    a_1
+    \\a_2
+    \\ \vdots
+    \\a_n
+\end{pmatrix}\]
+
+\chapter{向量的线性运算}
+\section{加法和数乘}
+\begin{definition}
+    定义很自然，此处不再写了
+\end{definition}
+\begin{property}
+    \textbf{加法和数乘}
+    \begin{enumerate}
+        \item 加法交换律
+        \item 加法结合律
+        \item 零元存在
+        \item 负向量存在
+        \item \(1 \cdot \alpha = \alpha\)
+        \item \((k\cdot l)\alpha=k(l \alpha)\)
+        \item \((k+l)\alpha = k \alpha + l \alpha\)
+        \item \(k(\alpha + \beta) = k \alpha + k \beta\)
+    \end{enumerate}
+\end{property}
+
+\section{向量的线性关系}
+\begin{definition}
+    对于n维向量\(\alpha_1,\alpha_2 \dots \alpha_m,\beta \)，如果存在数\(k_1,k_2,\dots,k_m\)使得
+    \[\beta = k_1\alpha_1 + k_2\alpha_2 + \dots + k_m\alpha_m = (\alpha_1,\alpha_2 \dots \alpha_m)
+    \begin{pmatrix}
+        k_1
+        \\k_2
+        \\ \vdots
+        \\k_m
+    \end{pmatrix}
+    \]
+    则称向量\(\beta\)是向量\(\alpha_1,\alpha_2 \dots \alpha_m\)的一个线性组合，或称向量\(\beta\)可由向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性表示
+    \\称\(k_1,k_2,\dots,k_m\)为组合系数或表示系数
+\end{definition}
+
+\begin{theorem}
+    \[\alpha_1=\begin{pmatrix}
+        a_{11}
+        \\a_{21}
+        \\ \vdots
+        \\a_{n1}
+    \end{pmatrix},\quad
+    \alpha_2=\begin{pmatrix}
+        a_{12}
+        \\a_{22}
+        \\ \vdots
+        \\a_{n2}
+    \end{pmatrix},\quad
+    \cdots,\quad
+    \alpha_m=\begin{pmatrix}
+        a_{1m}
+        \\a_{2m}
+        \\ \vdots
+        \\a_{nm}
+    \end{pmatrix}
+    \beta=
+    \begin{pmatrix}
+        b_1
+        \\b_2
+        \\ \vdots
+        \\b_m
+    \end{pmatrix}
+    \]
+    \[\begin{cases}\tag{11.1}
+        a_{11}x_1 + a_{12}x_2 + \dots + a_{1m}x_n = b_1\\
+        a_{21}x_1 + a_{22}x_2 + \dots + a_{2m}x_n = b_2\\
+        \quad\quad\vdots \\
+        a_{n1}x_1 + a_{n2}x_2 + \dots + a_{nm}x_n = b_m
+    \end{cases}
+    \]
+    设\(\alpha_1,\alpha_2 \dots \alpha_m,\beta \)为n维向量，则\(\beta\)可由向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性表示的充分必要条件是线性方程组\((11.1)\)有解
+\end{theorem}
 \end{document}
