@@ -846,4 +846,61 @@ n个数\(a_1,a_2,\dots,a_n\)组成的有序数组\((a_1,a_2,\dots,a_n)\)称为n�
     向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性无关，且\(\alpha_1,\alpha_2 \dots \alpha_m , \beta\)线性相关
     \\ \(\Leftrightarrow\) \(\beta\)可由向量组\(\alpha_1,\alpha_2 \dots \alpha_m\)线性表出，且表出系数唯一。
 \end{property}
+\section{极大线性无关组}
+\begin{definition}
+    设向量组\(I: \alpha_1,\alpha_2 \cdots \alpha_m \cdots\),若存在向量组\(II: \alpha_{i_1},\alpha_{i_2} \cdots \alpha_{i_r}\)
+    满足：
+    \begin{enumerate}
+        \item \(\alpha_{i_1},\alpha_{i_2} \cdots \alpha_{i_r}\)线性无关
+        \item 向量组I中的每一个向量都可由向量组II线性表示
+    \end{enumerate}
+    则称向量组\(II: \alpha_{i_1},\alpha_{i_2} \cdots \alpha_{i_r}\)是向量组I的一个极大线性无关组，简称极大无关组
+\end{definition}
+\begin{property}
+    \textbf{极大线性无关组的一些重要性质}
+    \begin{enumerate}
+        \item 向量组的极大线性无关组一定与向量组本身等价
+        \item 由向量组等价的传递性,向量组的两个不同的极大线性无关组之间是等价的.
+    \end{enumerate}
+\end{property}
+\begin{theorem}
+    给定两个向量组
+    \[(I)\alpha_1,\alpha_2 \cdots \alpha_s \quad (II) \beta_1,\beta_2 \cdots \beta_t \]
+    若向量组I能被向量组II线性表示，且\(s>t\)，那么\(\alpha_1,\alpha_2 \cdots \alpha_s\)线性相关
+    \\ \textbf{推论1：逆否命题}
+    \\给定两个向量组
+    \[(I)\alpha_1,\alpha_2 \cdots \alpha_s \quad (II) \beta_1,\beta_2 \cdots \beta_t \]
+    若向量组I能被向量组II线性表示，且\(\alpha_1,\alpha_2 \cdots \alpha_s\)线性无关，则\(s \leq t\)
+    \\更多推论：
+    \begin{enumerate}
+        \item 两个线性无关的等价的向量组所含的向量的个数必定相等
+        \item 一个向量组若有两个极大线性无关组，那么他们所含的向量的个数相等
+    \end{enumerate}
+\end{theorem}
+\section{向量组的秩}
+\begin{definition}
+    向量组\(\alpha_1,\alpha_2 \cdots \alpha_m\)的极大线性无关组所含向量的个数被称为秩，记作\(r(\alpha_1,\alpha_2 \cdots \alpha_m)\)
+\end{definition}
+\begin{property}
+    \textbf{常用性质}
+    \begin{enumerate}
+        \item 向量组\(\alpha_1,\alpha_2 \cdots \alpha_m\)线性无关 \(\Leftrightarrow\) \(r(\alpha_1,\alpha_2 \cdots \alpha_m)=m\) \\ 向量组\(\alpha_1,\alpha_2 \cdots \alpha_m\)线性相关 \(\Leftrightarrow\) \(r(\alpha_1,\alpha_2 \cdots \alpha_m)<m\)
+        \item 若\(r(\alpha_1,\alpha_2 \cdots \alpha_m)=r>0\)，则向量组中任意\(k>r\)个向量都是线性相关的
+        \item 若\(r(\alpha_1,\alpha_2 \cdots \alpha_m)=r>0\)，则向量组中任意r个向量都是它的一个极大线性无关组
+        \item 若向量组\(\alpha_1,\alpha_2 \cdots \alpha_m\)可由向量组\(\beta_1,\beta_2 \cdots \beta_s\)线性表出，
+        \\则\(r(\alpha_1,\alpha_2 \cdots \alpha_m) \leq r(\beta_1,\beta_2 \cdots \beta_t)\)
+        \item 等价的向量组具有相同的秩
+    \end{enumerate}
+\end{property}
+\begin{theorem}
+    设\(\mathbf{A}\)是\(m \times n\)矩阵，则\(\mathbf{A}\)的列向量组\(\alpha_1,\alpha_2 \cdots \alpha_n\)的秩等于矩阵\(\mathbf{A}\)的秩；A的行向量组的秩也等于\(\mathbf{A}\)的秩等于矩阵
+    \\矩阵的秩=矩阵的行秩=矩阵的列秩
+\end{theorem}
+\begin{problem}
+    \textbf{求向量组的秩，极大线性无关组和其他向量组表示系数的方式}
+    \\\includegraphics[scale=0.4]{problem3.4.png}
+    \includegraphics[scale=0.4]{problem3.5.png}
+    \\\includegraphics[scale=0.4]{problem3.6.png}
+    \includegraphics[scale=0.4]{problem3.7.png}
+\end{problem}
 \end{document}
