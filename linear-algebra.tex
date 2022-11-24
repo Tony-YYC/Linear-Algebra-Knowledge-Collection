@@ -1,10 +1,13 @@
 \documentclass[12pt,oneside]{ctexbook}
 \usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
 \usepackage{rotating}
+\usepackage{graphicx}
 \newtheorem{definition}[subsection]{定义}
 \newtheorem{theorem}[subsection]{定理}
 \newtheorem{property}[subsection]{性质}
 \newtheorem{method}[subsection]{基本方法}
+\newtheorem{problem}[subsection]{典型例题}
 
 %title
 \begin{document}
@@ -704,6 +707,7 @@ n个数\(a_1,a_2,\dots,a_n\)组成的有序数组\((a_1,a_2,\dots,a_n)\)称为n�
 
 \section{向量的线性关系}
 \begin{definition}
+    \textbf{线性组合}\\
     对于n维向量\(\alpha_1,\alpha_2 \dots \alpha_m,\beta \)，如果存在数\(k_1,k_2,\dots,k_m\)使得
     \[\beta = k_1\alpha_1 + k_2\alpha_2 + \dots + k_m\alpha_m = (\alpha_1,\alpha_2 \dots \alpha_m)
     \begin{pmatrix}
@@ -754,4 +758,92 @@ n个数\(a_1,a_2,\dots,a_n\)组成的有序数组\((a_1,a_2,\dots,a_n)\)称为n�
     \]
     设\(\alpha_1,\alpha_2 \dots \alpha_m,\beta \)为n维向量，则\(\beta\)可由向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性表示的充分必要条件是线性方程组\((11.1)\)有解
 \end{theorem}
+\begin{problem}
+    \textbf{判断向量可否线性表出及写出表达式的方法}
+    \\
+    \includegraphics[scale=0.6]{problem3.1.png}
+\end{problem}
+\begin{property}
+    \textbf{传递性}\\
+    向量组线性表出具有传递性
+    \[\left( \alpha_{1},\alpha_{2},\cdots,\alpha_{s} \right) = \left( \beta_{1},\beta_{2},\cdots,\beta_{t} \right)A\]
+    设向量组\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\)可由向量组\(\beta_{1},\beta_{2},\cdots,\beta_{t}\)线性表出，
+    \[\left( \beta_{1},\beta_{2},\cdots,\beta_{t} \right) = \left( \gamma_{1},\gamma_{2},\cdots,\gamma_{n} \right)B\]
+    设向量组\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\)可由向量组\(\gamma_{1},\gamma_{2},\cdots,\gamma_{n}\)线性表出，
+    \[\left( \alpha_{1},\alpha_{2},\cdots,\alpha_{s} \right) = \left( \beta_{1},\beta_{2},\cdots,\beta_{n} \right)A = \left( \gamma_{1},\gamma_{2},\cdots,\gamma_{n} \right)BA\]
+    即向量组\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\)可由\(\gamma_{1},\gamma_{2},\cdots,\gamma_{n}\)线性表出
+\end{property}
+\section{向量组等价}
+\begin{definition}
+    设有两个向量组\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\) 和\(\beta_{1},\beta_{2},\cdots,\beta_{t}\),\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\) 可由\(\beta_{1},\beta_{2},\cdots,\beta_{t}\) 线性表出，\(\beta_{1},\beta_{2},\cdots,\beta_{t}\)也可由\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\) 线性表出，则称向量组\(\alpha_{1},\alpha_{2},\cdots,\alpha_{s}\)与向量组\(\beta_{1},\beta_{2},\cdots,\beta_{t}\)等价。
+    \\ \textbf{向量组等价意味着可以相互表示}
+\end{definition}
+
+\begin{property}
+    \textbf{向量组的等价关系}
+    \begin{enumerate}
+        \item 反身性
+        \item 对称性
+        \item 传递性
+    \end{enumerate}
+\end{property}
+
+\section{线性相关与线性无关}
+\begin{definition}
+    设\(\alpha_1,\alpha_2 \dots \alpha_m\)为m个n维度向量，若存在不权威零的数，使
+    \[\tag{11.2} k_1\alpha_1 + k_2\alpha_2 + \dots + k_m\alpha_m = 0\]
+    则称\(\alpha_1,\alpha_2 \dots \alpha_m\)线性相关
+    \\直观上反映：这m个向量中存在多余的向量
+    \\否则称他们线性无关。若(11.2)式当且仅当\(k_1=k_2=\cdots=k_m=0\)时成立，则称\(\alpha_1,\alpha_2 \dots \alpha_m\)线性无关。
+    \\直观上反映：这m个向量中没有多余的向量
+\end{definition}
+\begin{property}
+    \textbf{线性相关与线性组合的关系} \\
+    向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性相关
+    \\ \(\Leftrightarrow\) \(\alpha_1,\alpha_2 \dots \alpha_m\)中至少有一个向量能由其他向量线性表出
+    \\（至少有一个多余的）
+    \\\textbf{逆否命题：}向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性无关
+    \\ \(\Leftrightarrow\) \(\alpha_1,\alpha_2 \dots \alpha_m\)中任何一个向量都不能由其他向量线性表出
+    \\（没有多余的）
+\end{property}
+\begin{property}
+    \textbf{与线性方程组之间的联系} \\
+    \(\alpha_1,\alpha_2 \dots \alpha_m\)线性相关（线性无关）
+    \\ \(\Leftrightarrow\) 齐次方程组\(k_1\alpha_1 + k_2\alpha_2 + \dots + k_m\alpha_m = 0\)有非零解（仅有唯一零解）
+    \\ \textbf{推论1}
+    \(\alpha_1,\alpha_2 \dots \alpha_m\)线性相关
+    \\ \(\Leftrightarrow\) \(r(A)<m\) （A的秩\(<\)未知数的个数=A的列数=向量个数）
+    \\ \textbf{推论2} （结合克拉默法则）
+    \\n个n维向量\(\alpha_1,\alpha_2 \dots \alpha_n\)线性相关（无关）
+    \\ \(\Leftrightarrow\) \(\rvert \mathbf{A} \rvert = \rvert \alpha_1,\alpha_2 \dots \alpha_n \rvert = 0 (\neq 0)\)
+    \\ \textbf{推论3}
+    \\ 对于\(\mathbb{R}^n\)中任意m个向量，当\(m > n\)时必线性相关。
+\end{property}
+\begin{property}
+    \textbf{一些重要结论}
+    \begin{enumerate}
+        \item m个n维向量中，若有含有0向量，则这m个向量线性相关 \\ \textbf{逆否命题：} 若m个n维向量是线性无关的，则这m个向量中没有0向量
+        \item m个n维向量中，若有一部分向量线性相关，则这m个向量线性相关
+        \item 若m个n维向量是线性无关的，则这m个向量中的任何一部分向量，放在一起，也是线性无关的
+        \item 若m个n维向量是线性无关的，那么保持这m个n维向量的分量的相对位置的任何n+k维向量仍然是线性无关的。
+        \item 若m个n维向量是线性相关的，那么保持这m个n维向量的分量的相对位置的任何k(≤n)维向量是线性相关的。
+    \end{enumerate}
+\end{property}
+
+\begin{method}
+    \textbf{判断向量组线性相关（线性无关）的方法}
+    \\ \includegraphics[scale=0.4]{method3.1.png}
+\end{method}
+\begin{problem}
+    \textbf{方程组解法}
+    \\ \includegraphics[scale=0.7]{problem3.2.png}
+\end{problem}
+\begin{problem}
+    \textbf{使用克拉默法则，结合行列式}
+    \\ \includegraphics[scale=0.6]{problem3.3.png}
+\end{problem}
+\begin{property}
+    向量\(\alpha_1,\alpha_2 \dots \alpha_m\)线性无关，且\(\alpha_1,\alpha_2 \dots \alpha_m , \beta\)线性相关
+    \\ \(\Leftrightarrow\) \(\beta\)可由向量组\(\alpha_1,\alpha_2 \dots \alpha_m\)线性表出，且表出系数唯一。
+\end{property}
 \end{document}
